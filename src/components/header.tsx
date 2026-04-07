@@ -1,4 +1,4 @@
-import { Box, VStack } from '@chakra-ui/react'
+import { VStack } from '@chakra-ui/react'
 import FilterButtonList from './filter-button-list'
 import Navber from './navbar'
 
