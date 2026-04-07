@@ -1,7 +1,16 @@
 import type { ThumbnailMockDataType } from '@/mock/thumbnail-mock'
 import { AspectRatio, Box, Flex, HStack, Image, Text, VStack } from '@chakra-ui/react'
 
-const VideoThumbnail = ({ title, channelName, hits, uploadedDate, thumbnail, profileImage }: ThumbnailMockDataType) => {
+const VideoThumbnail = ({
+  title,
+  channelName,
+  hits,
+  uploadedDate,
+  thumbnail,
+  profileImage,
+  lazyLoading,
+  fetchpriority,
+}: ThumbnailMockDataType & { lazyLoading: boolean; fetchpriority: boolean }) => {
   return (
     <Flex
       className='group'
@@ -31,17 +40,27 @@ const VideoThumbnail = ({ title, channelName, hits, uploadedDate, thumbnail, pro
       </Box>
       <VStack w={'full'} p={4} zIndex={10}>
         <AspectRatio w={'full'} ratio={16 / 9}>
-          <Image src={thumbnail} borderRadius={20} alt='강아지 사진' objectFit={'cover'} draggable={false} />
+          <Image
+            src={thumbnail}
+            borderRadius={20}
+            alt={`${title} 썸네일 사진`}
+            objectFit={'cover'}
+            draggable={false}
+            loading={lazyLoading ? 'lazy' : 'eager'}
+            fetchPriority={fetchpriority ? 'high' : 'auto'}
+          />
         </AspectRatio>
         <HStack w={'full'} justify={'start'} align={'start'} gap={4}>
           <Image
             src={profileImage}
-            alt='프로필 이미지'
+            alt={`${channelName} 프로필 이미지`}
             boxSize={'40px'}
             flexShrink={0}
             borderRadius={'full'}
             fit={'cover'}
             mt={'3px'}
+            loading={lazyLoading ? 'lazy' : 'eager'}
+            fetchPriority={fetchpriority ? 'high' : 'auto'}
           />
           <VStack align={'start'} gap={0}>
             {/* 영상 제목 */}

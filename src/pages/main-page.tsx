@@ -9,13 +9,13 @@ const MainPage = () => {
         templateColumns={{
           base: 'repeat(1, 1fr)',
           md: 'repeat(2, 1fr)',
-          '2xl': 'repeat(3, 1fr)',
+          xl: 'repeat(3, 1fr)',
         }}
       >
-        {thumbnailMockData.map((data) => {
+        {thumbnailMockData.map((data, idx) => {
           return (
             <GridItem key={`thumbnail-${data.title}`}>
-              <VideoThumbnail {...data} />
+              <VideoThumbnail {...data} lazyLoading={idx > 6 ? true : false} fetchpriority={idx < 3 ? true : false} />
             </GridItem>
           )
         })}
