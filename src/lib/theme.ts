@@ -5,6 +5,7 @@ const config = defineConfig({
     breakpoints: {
       mobileMax: '571px',
       tabletMid: '961px',
+      desktopMax: '1824px',
     },
   },
 })

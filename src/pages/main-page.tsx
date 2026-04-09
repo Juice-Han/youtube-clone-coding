@@ -10,6 +10,7 @@ const MainPage = () => {
           base: 'repeat(1, minmax(0, 1fr))',
           mobileMax: 'repeat(2, minmax(0, 1fr))',
           tabletMid: 'repeat(3, minmax(0, 1fr))',
+          desktopMax: 'repeat(4, minmax(0, 1fr))',
         }}
         p={4}
       >
