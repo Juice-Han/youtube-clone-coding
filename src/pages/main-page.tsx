@@ -1,4 +1,3 @@
-import VideoThumbnailTest from '@/components/ui/video-thumbnail-test'
 import VideoThumbnail from '@/components/video-thumbnail'
 import { thumbnailMockData } from '@/mock/thumbnail-mock'
 import { Grid, GridItem } from '@chakra-ui/react'
@@ -21,10 +20,6 @@ const MainPage = () => {
             </GridItem>
           )
         })}
-        {/* <GridItem>
-          <VideoThumbnail {...thumbnailMockData[0]} />
-          <VideoThumbnailTest {...thumbnailMockData[0]} />
-        </GridItem> */}
       </Grid>
     </>
   )
