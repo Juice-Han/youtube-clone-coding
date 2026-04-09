@@ -5,7 +5,7 @@ import { Box } from '@chakra-ui/react'
 
 const App = () => {
   return (
-    <Box mt={104}>
+    <Box mt={112}>
       <Header />
       <MainPage />
       <ColorModeButton />
