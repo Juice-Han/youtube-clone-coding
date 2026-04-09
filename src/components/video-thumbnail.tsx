@@ -26,11 +26,12 @@ const VideoThumbnail = ({
         <Box
           w={'full'}
           h={'full'}
-          bg={'gray.700'}
+          bg={'gray.300'}
           opacity={0}
           _groupHover={{ opacity: 100 }}
           borderRadius={30}
           transition={'opacity 0.3s ease'}
+          _dark={{ bg: 'gray.700' }}
         />
       </Box>
 
@@ -74,11 +75,12 @@ const VideoThumbnail = ({
             {/* 부가 정보 (작성자, 조회수, 업로드 시간) */}
             <Text
               w={'full'}
-              color={{ base: 'gray.500', _dark: 'gray.300' }}
+              color={'gray.800'}
               fontSize={'sm'}
               whiteSpace={'pre'}
               overflow={'hidden'}
               textOverflow={'ellipsis'}
+              _dark={{ color: 'gray.500' }}
             >
               {`${channelName}  ‣ ${hits}   ${uploadedDate}`}
             </Text>
