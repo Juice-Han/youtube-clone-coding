@@ -80,7 +80,7 @@ const VideoThumbnail = ({
               whiteSpace={'pre'}
               overflow={'hidden'}
               textOverflow={'ellipsis'}
-              _dark={{ color: 'gray.500' }}
+              _dark={{ color: 'gray.300' }}
             >
               {`${channelName}  ‣ ${hits}   ${uploadedDate}`}
             </Text>
