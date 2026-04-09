@@ -7,7 +7,7 @@ import { IoLogoYoutube } from 'react-icons/io'
 import { LuSearch } from 'react-icons/lu'
 import { TiMicrophoneOutline } from 'react-icons/ti'
 
-const Navber = () => {
+const Navbar = () => {
   const isAttached = useBreakpointValue({ base: false, md: true })
   return (
     <>
@@ -60,4 +60,4 @@ const Navber = () => {
     </>
   )
 }
-export default Navber
+export default Navbar
