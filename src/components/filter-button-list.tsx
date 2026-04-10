@@ -1,4 +1,5 @@
 import { Box, Button, Flex, IconButton, ScrollArea } from '@chakra-ui/react'
+import { throttle } from 'lodash'
 import { useEffect, useRef, useState } from 'react'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
@@ -86,10 +87,12 @@ const FilterButtonList = () => {
     }
 
     // ScrollArea의 resize 이벤트 감지 핸들러
-    const observer = new ResizeObserver(() => {
-      checkOverflow()
-      calculateScrollLocation()
-    })
+    const observer = new ResizeObserver(
+      throttle(() => {
+        checkOverflow()
+        calculateScrollLocation()
+      }, 200)
+    )
 
     // ScrollArea resize 이벤트 리스너 등록
     if (scrollAreaRef.current) {
