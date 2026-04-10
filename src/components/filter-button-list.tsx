@@ -1,5 +1,5 @@
 import { Box, Button, Flex, IconButton, ScrollArea } from '@chakra-ui/react'
-import { throttle } from 'lodash'
+import throttle from 'lodash.throttle'
 import { useEffect, useRef, useState } from 'react'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
