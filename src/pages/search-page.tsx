@@ -1,4 +1,7 @@
+import { useSearchParams } from 'react-router'
+
 const SearchPage = () => {
-  return <div>SearchPage</div>
+  const [searchParams] = useSearchParams()
+  return <div>{searchParams.get('q')}</div>
 }
 export default SearchPage
