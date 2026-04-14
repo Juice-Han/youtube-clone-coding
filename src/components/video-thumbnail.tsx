@@ -18,10 +18,10 @@ const VideoThumbnail = ({
         zIndex={5}
         w={'full'}
         h={'full'}
-        p={2}
-        _groupHover={{ p: 0 }}
+        scale={0.9}
+        _groupHover={{ scale: 1 }}
         pos={'absolute'}
-        transition={'padding 0.3s ease'}
+        transition={'scale 0.3s ease'}
       >
         <Box
           w={'full'}
