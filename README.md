@@ -14,6 +14,10 @@ Chakra-UI를 활용한 유튜브 클론 코딩
 
 ![반응형 레이아웃](./public/images/main-page-reactive.gif)
 
+### 검색 페이지
+
+![검색 페이지](./public/images/search-page-screen-shot.webp)
+
 ## 사용 기술 스택
 
 react : 19.2.4
