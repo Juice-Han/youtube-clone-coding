@@ -17,7 +17,7 @@ const MainPage = () => {
         {thumbnailMockData.map((data, idx) => {
           return (
             <GridItem key={`thumbnail-${data.title}`}>
-              <VideoThumbnail {...data} lazyLoading={idx > 6 ? true : false} fetchpriority={idx < 3 ? true : false} />
+              <VideoThumbnail {...data} lazyLoading={idx > 6 ? true : false} fetchPriority={idx < 3 ? true : false} />
             </GridItem>
           )
         })}

@@ -9,8 +9,8 @@ const VideoThumbnail = ({
   thumbnail,
   profileImage,
   lazyLoading = false,
-  fetchpriority = false,
-}: ThumbnailMockDataType & { lazyLoading?: boolean; fetchpriority?: boolean }) => {
+  fetchPriority = false,
+}: ThumbnailMockDataType & { lazyLoading?: boolean; fetchPriority?: boolean }) => {
   return (
     <Box role='group' className='group' w={'full'} pos={'relative'} _hover={{ cursor: 'pointer' }}>
       {/* 호버 시 배경 그림자 애니메이션 박스 */}
@@ -58,7 +58,7 @@ const VideoThumbnail = ({
             objectFit={'cover'}
             draggable={false}
             loading={lazyLoading ? 'lazy' : 'eager'}
-            fetchPriority={fetchpriority ? 'high' : 'auto'}
+            fetchPriority={fetchPriority ? 'high' : 'auto'}
           />
         </AspectRatio>
 
@@ -74,7 +74,7 @@ const VideoThumbnail = ({
             fit={'cover'}
             mt={'3px'}
             loading={lazyLoading ? 'lazy' : 'eager'}
-            fetchPriority={fetchpriority ? 'high' : 'auto'}
+            fetchPriority={fetchPriority ? 'high' : 'auto'}
           />
 
           {/* 영상 상세 정보 */}

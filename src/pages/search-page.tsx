@@ -1,6 +1,7 @@
 import VideoSearchResult from '@/components/video-search-result'
+import VideoThumbnail from '@/components/video-thumbnail'
 import { thumbnailMockData } from '@/mock/thumbnail-mock'
-import { Flex } from '@chakra-ui/react'
+import { Box, Flex } from '@chakra-ui/react'
 import { useNavigate, useSearchParams } from 'react-router'
 
 const SearchPage = () => {
@@ -13,19 +14,28 @@ const SearchPage = () => {
   }
 
   const filteredVideoData = thumbnailMockData.filter((v) => v.title.includes(q!))
+
   return (
     <>
       <Flex direction={'column'} p={4} maxW={'1250px'} mx={'auto'}>
-        {filteredVideoData.map((data, idx) => {
-          return (
-            <VideoSearchResult
-              key={`${data.title} 영상`}
-              lazyLoading={idx > 6 ? true : false}
-              fetchPriority={idx < 3 ? true : false}
-              {...data}
-            />
-          )
-        })}
+        {filteredVideoData.map((data, idx) => (
+          <Box key={`${data.title} 영상`}>
+            <Box display={{ base: 'block', sm: 'none' }}>
+              <VideoThumbnail
+                lazyLoading={idx > 6 ? true : false}
+                fetchPriority={idx < 3 ? true : false}
+                {...data}
+              />
+            </Box>
+            <Box display={{ base: 'none', sm: 'block' }}>
+              <VideoSearchResult
+                lazyLoading={idx > 6 ? true : false}
+                fetchPriority={idx < 3 ? true : false}
+                {...data}
+              />
+            </Box>
+          </Box>
+        ))}
       </Flex>
     </>
   )
