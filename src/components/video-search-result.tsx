@@ -1,5 +1,5 @@
 import type { ThumbnailMockDataType } from '@/mock/thumbnail-mock'
-import { Box, Flex, HStack, IconButton, Image, Text, VStack } from '@chakra-ui/react'
+import { Box, Flex, IconButton, Image, Text } from '@chakra-ui/react'
 import { BsThreeDots } from 'react-icons/bs'
 
 const VideoSearchResult = ({
