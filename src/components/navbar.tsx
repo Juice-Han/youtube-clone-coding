@@ -36,11 +36,17 @@ const Navbar = () => {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value)
   }
+  const searchVideo = () => {
+    if (search.trim() === '') return false
+    navigate(`/search?q=${encodeURIComponent(search)}`)
+    return true
+  }
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && !e.nativeEvent.isComposing) {
-      navigate(`/search?q=${encodeURIComponent(search)}`)
-      inputRef.current?.blur()
+      if (searchVideo()) {
+        inputRef.current?.blur()
+      }
     }
   }
 
@@ -50,13 +56,13 @@ const Navbar = () => {
 
   const handleSearchButtonClick = () => {
     if (isSearchBarOpen) {
-      navigate(`/search?q=${encodeURIComponent(search)}`)
+      searchVideo()
       inputRef.current?.blur()
     } else {
       if (window.innerWidth < SEARCH_BAR_OPEN_WIDTH) {
         setIsSearchBarOpen(true)
       } else {
-        navigate(`/search?q=${encodeURIComponent(search)}`)
+        searchVideo()
         inputRef.current?.blur()
       }
     }
