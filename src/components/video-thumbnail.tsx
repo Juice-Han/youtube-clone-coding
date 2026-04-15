@@ -1,5 +1,5 @@
 import type { ThumbnailMockDataType } from '@/mock/thumbnail-mock'
-import { AspectRatio, Box, HStack, Image, Text, VStack } from '@chakra-ui/react'
+import { AspectRatio, Box, HStack, Image, Text, useMediaQuery, VStack } from '@chakra-ui/react'
 
 const VideoThumbnail = ({
   title,
@@ -11,15 +11,24 @@ const VideoThumbnail = ({
   lazyLoading = false,
   fetchpriority = false,
 }: ThumbnailMockDataType & { lazyLoading?: boolean; fetchpriority?: boolean }) => {
+  // const [isHoverable] = useMediaQuery(['(any-hover: hover)'])
+
   return (
-    <Box className='group' w={'full'} pos={'relative'} _hover={{ cursor: 'pointer' }}>
+    <Box role='group' className='group' w={'full'} pos={'relative'} _hover={{ cursor: 'pointer' }}>
       {/* 호버 시 배경 그림자 애니메이션 박스 */}
       <Box
         zIndex={5}
         w={'full'}
         h={'full'}
         scale={0.9}
-        _groupHover={{ scale: 1 }}
+        css={{
+          '@media (pointer: fine)': {
+            '[role=group]:hover &': {
+              scale: 1,
+            },
+          },
+        }}
+        // _groupHover={isHoverable ? { scale: 1 } : undefined}
         pos={'absolute'}
         transition={'scale 0.3s ease'}
       >
@@ -28,7 +37,14 @@ const VideoThumbnail = ({
           h={'full'}
           bg={'gray.300'}
           opacity={0}
-          _groupHover={{ opacity: 100 }}
+          css={{
+            '@media (pointer: fine)': {
+              '[role=group]:hover &': {
+                opacity: 1,
+              },
+            },
+          }}
+          // _groupHover={isHoverable ? { opacity: 100 } : undefined}
           borderRadius={30}
           transition={'opacity 0.3s ease'}
           _dark={{ bg: 'gray.700' }}
