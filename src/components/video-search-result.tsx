@@ -46,7 +46,7 @@ const VideoSearchResult = ({
           </IconButton>
         </Flex>
 
-        <Text fontSize={'xs'} color={'gray.400'} fontWeight={'semibold'}>
+        <Text fontSize={'xs'} color={'gray.600'} fontWeight={'semibold'} _dark={{ color: 'gray.300' }}>
           {hits} · {uploadedDate}
         </Text>
         <Flex direction={'row'} gap={2} my={2} align={'center'}>
@@ -61,12 +61,16 @@ const VideoSearchResult = ({
             loading={lazyLoading ? 'lazy' : 'eager'}
             fetchPriority={fetchPriority ? 'high' : 'auto'}
           />
-          <Text color={{ base: 'gray.400', _hover: 'gray.300' }} fontSize={'xs'}>
+          <Text
+            color={{ base: 'gray.600', _hover: 'gray.900' }}
+            fontSize={'xs'}
+            _dark={{ color: 'gray.400', _hover: { color: 'gray.300' } }}
+          >
             {channelName}
           </Text>
         </Flex>
 
-        <Text lineClamp={2} color={'gray.400'} fontSize={'xs'}>
+        <Text lineClamp={2} color={'gray.600'} fontSize={'xs'} _dark={{ color: 'gray.400' }}>
           {description}
         </Text>
       </Flex>
