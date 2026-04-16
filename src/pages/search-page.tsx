@@ -1,3 +1,4 @@
+import FilterButtonList from '@/components/filter-button-list'
 import VideoSearchResult from '@/components/video-search-result'
 import VideoThumbnail from '@/components/video-thumbnail'
 import { thumbnailMockData } from '@/mock/thumbnail-mock'
@@ -25,7 +26,18 @@ const SearchPage = () => {
 
   return (
     <>
-      <Flex direction={'column'} p={4} maxW={'1250px'} mx={'auto'}>
+      <Box
+        position={'fixed'}
+        w={{ base: '100%', md: 'calc(100% - 80px)' }}
+        left={{ base: 0, md: '64px' }}
+        top={'68px'}
+        zIndex={15}
+        bg={'bg'}
+        pb={3}
+      >
+        <FilterButtonList />
+      </Box>
+      <Flex direction={'column'} p={4} maxW={'1250px'} mx={'auto'} pt={50}>
         {filteredVideoData.map((data, idx) => (
           <Box key={`${data.title} 영상`}>
             <Box display={{ base: 'block', sm: 'none' }}>

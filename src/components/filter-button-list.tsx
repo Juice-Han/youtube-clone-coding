@@ -108,59 +108,61 @@ const FilterButtonList = () => {
   }, [])
 
   return (
-    <Box pos={'relative'} w={'full'}>
-      <IconButton
-        display={isOverflowing && !isScrollAtStart ? 'inline-flex' : 'none'}
-        size={'sm'}
-        borderRadius={'3xl'}
-        variant={'subtle'}
-        pos={'absolute'}
-        left={0}
-        top={'50%'}
-        transform={'translateY(-50%)'}
-        zIndex={15}
-        bg={{ base: 'white', _dark: 'black' }}
-        onClick={() => scrollBy(-150)}
-      >
-        <FaAngleLeft />
-      </IconButton>
-      <ScrollArea.Root>
-        <ScrollArea.Viewport ref={scrollAreaRef} onScroll={onScrollHandler}>
-          <ScrollArea.Content>
-            <Flex gap={3} px={2}>
-              {filterList.map((filter) => (
-                <Button
-                  key={filter.title}
-                  variant={filter.selected ? 'solid' : 'subtle'}
-                  colorPalette={'gray'}
-                  rounded={10}
-                  px={3}
-                  size={'sm'}
-                  onClick={() => handleFilterButtonClick(filter.title)}
-                  fontWeight={'bold'}
-                >
-                  {filter.title}
-                </Button>
-              ))}
-            </Flex>
-          </ScrollArea.Content>
-        </ScrollArea.Viewport>
-      </ScrollArea.Root>
-      <IconButton
-        display={isOverflowing && !isScrollAtEnd ? 'inline-flex' : 'none'}
-        size={'sm'}
-        borderRadius={'3xl'}
-        variant={'subtle'}
-        pos={'absolute'}
-        right={0}
-        top={'50%'}
-        transform={'translateY(-50%)'}
-        zIndex={15}
-        bg={{ base: 'white', _dark: 'black' }}
-        onClick={() => scrollBy(150)}
-      >
-        <FaAngleRight />
-      </IconButton>
+    <Box w={'full'} px={4}>
+      <Box pos={'relative'} w={'full'}>
+        <IconButton
+          display={isOverflowing && !isScrollAtStart ? 'inline-flex' : 'none'}
+          size={'sm'}
+          borderRadius={'3xl'}
+          variant={'subtle'}
+          pos={'absolute'}
+          left={0}
+          top={'50%'}
+          transform={'translateY(-50%)'}
+          zIndex={15}
+          bg={{ base: 'white', _dark: 'black' }}
+          onClick={() => scrollBy(-150)}
+        >
+          <FaAngleLeft />
+        </IconButton>
+        <ScrollArea.Root>
+          <ScrollArea.Viewport ref={scrollAreaRef} onScroll={onScrollHandler}>
+            <ScrollArea.Content>
+              <Flex gap={3} px={2}>
+                {filterList.map((filter) => (
+                  <Button
+                    key={filter.title}
+                    variant={filter.selected ? 'solid' : 'subtle'}
+                    colorPalette={'gray'}
+                    rounded={10}
+                    px={3}
+                    size={'sm'}
+                    onClick={() => handleFilterButtonClick(filter.title)}
+                    fontWeight={'bold'}
+                  >
+                    {filter.title}
+                  </Button>
+                ))}
+              </Flex>
+            </ScrollArea.Content>
+          </ScrollArea.Viewport>
+        </ScrollArea.Root>
+        <IconButton
+          display={isOverflowing && !isScrollAtEnd ? 'inline-flex' : 'none'}
+          size={'sm'}
+          borderRadius={'3xl'}
+          variant={'subtle'}
+          pos={'absolute'}
+          right={0}
+          top={'50%'}
+          transform={'translateY(-50%)'}
+          zIndex={15}
+          bg={{ base: 'white', _dark: 'black' }}
+          onClick={() => scrollBy(150)}
+        >
+          <FaAngleRight />
+        </IconButton>
+      </Box>
     </Box>
   )
 }
