@@ -24,6 +24,7 @@ const VideoSearchResult = ({
         flexShrink={0}
         overflow={'hidden'}
         borderRadius={20}
+        cursor={'pointer'}
       >
         <Image
           src={thumbnail}
