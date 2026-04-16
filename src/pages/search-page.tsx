@@ -16,14 +16,6 @@ const SearchPage = () => {
 
   const filteredVideoData = thumbnailMockData.filter((v) => v.title.includes(q!))
 
-  if (filteredVideoData.length === 0) {
-    return (
-      <Center pt={3}>
-        <Text>검색 결과가 존재하지 않습니다.</Text>
-      </Center>
-    )
-  }
-
   return (
     <>
       <Box
@@ -37,22 +29,34 @@ const SearchPage = () => {
       >
         <FilterButtonList />
       </Box>
-      <Flex direction={'column'} p={4} maxW={'1250px'} mx={'auto'} pt={50}>
-        {filteredVideoData.map((data, idx) => (
-          <Box key={`${data.title} 영상`}>
-            <Box display={{ base: 'block', sm: 'none' }}>
-              <VideoThumbnail lazyLoading={idx > 6 ? true : false} fetchPriority={idx < 3 ? true : false} {...data} />
-            </Box>
-            <Box display={{ base: 'none', sm: 'block' }}>
-              <VideoSearchResult
-                lazyLoading={idx > 6 ? true : false}
-                fetchPriority={idx < 3 ? true : false}
-                {...data}
-              />
-            </Box>
-          </Box>
-        ))}
-      </Flex>
+      <Box pt={50}>
+        {filteredVideoData.length === 0 ? (
+          <Center pt={3}>
+            <Text>검색 결과가 존재하지 않습니다.</Text>
+          </Center>
+        ) : (
+          <Flex direction={'column'} p={4} maxW={'1250px'} mx={'auto'}>
+            {filteredVideoData.map((data, idx) => (
+              <Box key={`${data.title} 영상`}>
+                <Box display={{ base: 'block', sm: 'none' }}>
+                  <VideoThumbnail
+                    lazyLoading={idx > 6 ? true : false}
+                    fetchPriority={idx < 3 ? true : false}
+                    {...data}
+                  />
+                </Box>
+                <Box display={{ base: 'none', sm: 'block' }}>
+                  <VideoSearchResult
+                    lazyLoading={idx > 6 ? true : false}
+                    fetchPriority={idx < 3 ? true : false}
+                    {...data}
+                  />
+                </Box>
+              </Box>
+            ))}
+          </Flex>
+        )}
+      </Box>
     </>
   )
 }
